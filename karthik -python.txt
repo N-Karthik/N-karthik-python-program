@@ -1,0 +1,75 @@
+#First create empty dictionary
+software={}
+
+#specify the number of applications
+
+n=int(input("enter the number of application:"))
+
+#Get the detail of the application one by one 
+
+for i in range(0,n):
+  key=input("enter the author name:")
+  value=[] #used to get the details in the form of list 
+  print("enter the application name,version,publishing year,price one by one:")
+
+#loop for getting the values one after one
+
+  for i in range(0,4):
+    a=input("")
+    value.append(a)     #add the value to the list 
+  software[key]=value #add the values to the related author
+
+#answer for question a
+
+x=input("enter the author name display details:")
+y=list(software.keys())  #collect author names and make it as list
+for j in range(0,n):
+    if(x==y[j]):
+       print(y[j],software[y[j]])   #to print the author name and related details
+    else:
+    	j=j+1
+    print("\n\n\n details in increasing order of price")
+
+# answer for question b
+
+b=list(software.values())  #get the values from dictionary
+price=[]    #collect the prices in a seperate list
+for k in range(0,n):  #loop to get the price values only 
+    less=(b[k][3])
+    price.append(less)
+s=sorted(price)
+for l in range(0,n):
+    if(s[l]==b[l][3]):
+        for m in range(0,4):
+            print(b[l][m])
+            m=m+1
+    else:
+        l=l+1
+
+#Answer for question c
+
+name=input("enter the author you want to search:")
+year=input("enter the year you want to search:")
+for d in range(0,n):
+    if(b[d][0]==name or b[d][2]==year):
+        for e in range(0,4):
+            print(b[d][e])
+            e=e+1
+    else:
+         d=d+1
+
+#answer for question d
+
+b=list(software.values())
+yr=[]
+for k in range(0,n):
+    less=(b[k][2])
+    yr.append(less)
+    d=sorted(price)
+    for l in range(0,n):
+        if(d[1]==b[l][3]):
+            for m in range(0,4):
+                print(b[l][m])
+                m=m+1
+        else:
+            l=l+1
